@@ -1,0 +1,32 @@
+
+.productsview{
+  width: 90%;
+  margin: auto;
+}
+.bg-img img{
+  max-width: 400px;
+  border-radius: 90px 0px  0px 90px;
+  right:0;
+  position: fixed;
+  top: 13%;
+  z-index: -100;
+  opacity:0.95
+}
+.filters{
+  margin: auto;
+  width: 90%;
+}
+
+@media only screen and (max-width: 768px) {
+  .bg-img img{
+    display:none;
+  }
+  .productsview .filters{
+    width: 100%;
+
+  }
+  .filtersandproducts{
+    margin: auto;
+  }
+}
+

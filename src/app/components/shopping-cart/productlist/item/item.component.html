@@ -1,0 +1,22 @@
+<!-- Item in ProductList-->
+    <div class="card mb-4 box-shadow item" (click)="viewDetails()">
+      <img class="card-img-top" [src]="Item.ImageUrl" >
+      <div class="card-body">
+
+        <p class="card-text">{{Item.name}}</p>
+          <p class="card-text"></p>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <small class="text-muted">{{Item.price | currency:'EUR'}}</small>
+              </div>
+
+              <div class="col-8">
+                <small class="text-muted" >Verfügbare Größen:</small>
+                <small class="text-muted" *ngFor="let size of Item.availableSizes, last as isLast" > {{size}} <span *ngIf="!isLast">|</span></small>
+
+              </div>
+
+            </div>
+    </div>
+

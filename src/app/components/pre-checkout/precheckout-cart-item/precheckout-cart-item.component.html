@@ -1,0 +1,27 @@
+<div class="cart-item">
+
+      <div class="row">
+        <div class="col-sm">
+          <img class="img-fluid rounded" [src]="cartItem.ImageUrl" style ="max-height: 100px">
+        </div>
+        <div class="col-sm">
+            <div class="row">
+              Name: {{cartItem.name}}
+            </div>
+            <div class="row">
+              Größe: {{cartItem.selectedSize}}
+            </div>
+            <div class="row">
+              Anzahl: {{cartItem.quantity}}
+            </div>
+
+            <div class="row">
+              <strong>Preis:  {{(cartItem.price * cartItem.quantity) | currency:'EUR' }}</strong>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary" style="float:right" (click)="DeleteItemFromCart(cartItem)">Entfernen</button>
+      </div>
+    </div>
+</div>
+
+
+

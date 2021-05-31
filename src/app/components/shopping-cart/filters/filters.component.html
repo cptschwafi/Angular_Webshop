@@ -1,0 +1,21 @@
+<div id="wrapper2" *ngIf="displayfilters">
+  <div id="wrapper">
+      <div id="genderselect" >
+        <div class="gender" *ngFor="let gender of availableFilters.genders" (click)="ChangeFilters(gender,'' ,'gender')">
+          {{gender}}
+        </div>
+      </div>
+      <div class="category" *ngFor="let category of availableFilters.filters" >
+        <div class="categoryname" (click)="ChangeFilters('all',category.categoryname ,'subcategory')">
+          {{category.categoryname}}
+        </div>
+        <div class="subcategory" *ngFor="let subcategory of category.subcategories" (click)="ChangeFilters(subcategory,category.categoryname ,'subcategory')">
+          {{subcategory}}
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+

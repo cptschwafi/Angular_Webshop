@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list group" >
+        <div *ngIf="cartItems.length === 0" class="alert alert-info">
+          <small>Der Warenkorb ist leer</small>
+          <img src="https://maxcdn.icons8.com/Share/icon/nolan/Shopping/shopping_cart1600.png" style="width: 30px;" alt="">
+        </div>
+        <div *ngIf="cartItems.length >0" >
+          <li  class="list-group-item" *ngFor="let cItem of cartItems" >
+            <app-precheckout-cart-item [cartItem]="cItem" (DeleteItem)="removeItemfromCart($event)">
+            </app-precheckout-cart-item>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <li  class="list-group-item" *ngIf="cartItems.length >0">
+      <div >
+        <h1>Bestellung</h1>
+        <p>ZWISCHENSUMME:  {{cartTotal |currency:'EUR'}}</p>
+        <p>VERSAND:  {{6.95 |currency:'EUR'}}</p>
+        <p>Summe:  <strong>{{cartTotal+6.95 |currency:'EUR'}}</strong></p>
+        <button type="button" class="btn btn-block btn-primary" routerLink="/checkout">KAUFEN</button>
+      </div>
+    </li>
+    </div>
+  </div>
+</div>
+
+
+
+

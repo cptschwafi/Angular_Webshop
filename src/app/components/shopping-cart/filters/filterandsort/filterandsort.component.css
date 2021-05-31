@@ -1,0 +1,53 @@
+.wrapper{
+  padding-bottom: 3rem;
+}
+#headline{
+  padding:10px 10px 10px 0px;
+}
+.Filter{
+  display: inline-block;
+  padding: 2px 8px 2px 8px;
+  font-size: 80%;
+
+}
+.filter-box:hover .Filter{
+
+  background-color: white;
+}
+
+.filter-box:hover .x-box{
+  color: red
+}
+.filter-box:hover .Filter{
+  background:rgb(247, 247, 247);
+}
+.filter-box{
+  display:inline-block;
+  border:1px solid lightgray;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px grey;
+  margin-left: 15px;
+}
+.x-box{
+  border-left: 1px solid lightgray;
+  display:flex;
+  float: right;
+  padding: 2px 5px 2px 5px;
+  font-size: smaller;
+  background:rgb(247, 247, 247);
+}
+
+#size-select{
+  max-width:60px;
+  font-size: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+  .delete-box{
+    margin-top: 10px;
+  }
+  #size-select{
+    margin-left: 15px;
+  }
+}
+

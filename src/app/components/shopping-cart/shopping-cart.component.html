@@ -1,0 +1,22 @@
+<!--Shop Main Page with Products and Cart-->
+
+<div class="row">
+  <div class="col-lg-2">
+    <app-filters></app-filters>
+  </div>
+  <div class="col-lg-9 filtersandproducts">
+    <div class="filters">
+      <app-filterandsort></app-filterandsort>
+    </div>
+    <div class="productsview">
+      <app-productlist></app-productlist>
+    </div>
+  </div>
+</div>
+<div class="bg-img" >
+  <button (click)="hideBackground()">Hintergrund ein/aus</button>
+  <img *ngIf="showbackground" src="http://schwafisplace.sytes.net/images/Mannequin-background.jpg" alt="">
+</div>
+
+
+

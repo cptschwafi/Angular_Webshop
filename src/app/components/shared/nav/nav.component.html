@@ -1,0 +1,29 @@
+<!-- Include the above in your HEAD tag -->
+<nav>
+    <div class="burger" (click)="toggleBurgerMenu()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+    <div class="logo" (click)="NavigateHome()">
+      <app-header></app-header>
+    </div>
+
+    <ul class="nav-links">
+      <li>
+        <div class="CartSymbol" [routerLink]="['/precheckout']">
+          <img src="https://maxcdn.icons8.com/Share/icon/nolan/Shopping/shopping_cart1600.png" class="responsive" alt="">
+          <div id="qty-container">
+            <div id="qty">
+              {{cartItems.length}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <img src="https://maxcdn.icons8.com/Share/icon/nolan/User_Interface/email1600.png" class="responsive" alt="" [routerLink]="['/contact']">
+      </li>
+    </ul>
+</nav>
+

@@ -1,0 +1,88 @@
+*{
+  position: -webkit-sticky; /* Safari */position: sticky;
+}
+
+#genderselect{
+  padding-bottom: 1rem;
+  text-align: left;
+  display: flex;
+
+}
+.gender{
+  display:inline-block;
+  cursor: default;
+  border-radius: 3px;
+  border: 1px solid rgb(158, 158, 158);
+  padding: 5px 15px 5px 15px;
+}
+
+.gender:hover{
+  text-decoration: underline;
+}
+
+.category{
+color:black;
+cursor:default;
+text-align: left;
+padding: 15px 0px 0px 15px;
+}
+
+.categoryname:hover
+{
+  text-decoration: underline;
+}
+
+.subcategory
+{
+  padding: 15px 15px 0px 15px;
+  cursor: default;
+  text-align: left;
+
+}
+.subcategory:hover
+{
+  text-decoration: underline;
+}
+
+
+#wrapper{
+ display:inline-block;
+
+}
+#wrapper2{
+  text-align: center;
+
+ }
+
+
+ @media only screen and (max-width: 992px) {
+  *{
+    position: relative;
+    top: 0vh;
+  }
+  .categoryname{
+    background: lightgrey;
+  }
+ }
+
+ @media only screen and (max-width: 768px) {
+  .category{
+    text-align: center;
+    padding-left: 0;
+  }
+  .subcategory{
+    text-align: center;
+    margin: auto;
+  }
+
+  #genderselect{
+    width: 50%;
+    display: flex;
+    text-align: center;
+  }
+  .gender{
+    padding: 2px 5px 2px 5px
+  }
+
+
+}

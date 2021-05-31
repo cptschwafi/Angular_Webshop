@@ -1,0 +1,24 @@
+
+.wrapper{
+  background-color: blue;
+  width: 100vw;
+  min-height: 4vh;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  text-align: center;
+
+
+}
+.acceptbutton{
+  color: white;
+}
+.acceptbutton:hover{
+  background: white;
+  color: blue;
+}
+
+.content{
+  margin-top: 0.5vh;
+  padding:0vh 3vw 2vh 4vw
+}

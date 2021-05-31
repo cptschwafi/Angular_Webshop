@@ -1,0 +1,193 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="container" style="padding-bottom: 2em;">
+        <li  class="list-group-item">
+          <!-- Zahlungsart-->
+          <div class="inputcontainer">
+            <div class="categorylabel">
+              <p>Zahlungsart</p>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <label class="custom-radio-btn">
+                  <input type="radio" name="payment-option" value="paypal" (change)="showPaypalButton()" [(ngModel)]="payment" checked>
+                  Paypal
+                  <span class="checkmark"></span>
+                </label>
+                <div class="paypal">
+                  <!-- This is the div the paypal button will be rendered in. -->
+                  <div id="paypal-checkout-btn"></div>
+                  <div id="paypal-disabled"></div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+              <label class="custom-radio-btn">
+                <input type="radio" name="payment-option" value="banktransfer" (change)="showPaypalButton()" [(ngModel)]="payment" >
+                Banküberweisung
+                <span class="checkmark"></span>
+              </label>
+              </div>
+            </div>
+          </div>
+          <div class="banktransferdata" *ngIf="payment==='banktransfer'" >
+            <form action="" [formGroup]="email" method ="POST" class="form">
+              <!--EMAIL-->
+              <div class="inputcontainer" >
+                <div class="categorylabel">
+                  <p>E-Mail</p>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" formControlName="email" placeholder=" " id="email" name="email" tabindex="1">
+                      <label for="email" class ="form-label"> E-Mail</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <button type="button" class="btn btn-block btn-primary" type="submit" (click)="validateEmail()">BESTÄTIGEN</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="ifEmailConfirmed" *ngIf="emailconfirmed">
+              <form action="" [formGroup]="checkoutForm" method ="POST" class="form">
+                <!--Lieferadresse-->
+                <div class="inputcontainer no-padding-bottom" style="border-bottom: white">
+                  <div class="categorylabel">
+                    <p>Lieferadresse</p>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="name" placeholder=" " id="name" name="name" tabindex="1">
+                        <label for="name" class ="form-label"> Vorname</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="lastname" placeholder=" " id="lastname" name="lastname" tabindex="1">
+                        <label for="lastname" class ="form-label"> Nachname</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row no-padding" >
+                    <div class="col-xl-5">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="street" placeholder=" " id="street" name="street" tabindex="1">
+                        <label for="strees" class ="form-label"> Strasse und Hausnummer</label>
+                      </div>
+                    </div>
+                    <div class="col-xl-4">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="city" placeholder=" " id="name" name="name" tabindex="1">
+                        <label for="name" class ="form-label"> Stadt</label>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="postalcode" placeholder=" " id="name" name="name" tabindex="1">
+                        <label for="name" class ="form-label"> PLZ</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xl-6">
+                      <div class="form-group" style="padding-top: 5px;">
+                        <select formControlName="country" class="custom-select custom-select-sm">
+                          <option value="" disabled selected>Land</option>
+                          <option *ngFor="let country of availablecountries" [ngValue]="country" >{{country}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                <div class="inputcontainer" >
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="checkbox-container">
+                        Lieferadresse gleicht Rechnungsaddresse
+                        <input type="checkbox" id="addresscheck" [(ngModel)]="billingadress" name="addresscheck"  (change)="onCheckboxChange($event)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <form action="" [formGroup]="billingdata" method ="POST" class="form" >
+                <!--Rechnungsadresse-->
+                <div class="inputcontainer" *ngIf="!billingadress">
+                  <div class="categorylabel">
+                    <p>Rechnungsadresse</p>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="billingname" placeholder=" " id="name" name="name" tabindex="1">
+                        <label for="name" class ="form-label"> Vorname</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="billinglastname" placeholder=" " id="lastname" name="lastname" tabindex="1">
+                        <label for="lastname" class ="form-label"> Nachname</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row no-padding" >
+                    <div class="col-xl-5">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="billingstreet" placeholder=" " id="street" name="street" tabindex="1">
+                        <label for="strees" class ="form-label"> Strasse und Hausnummer</label>
+                      </div>
+                    </div>
+                    <div class="col-xl-4">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="billingcity" placeholder=" " id="name" name="name" tabindex="1">
+                        <label for="name" class ="form-label"> Stadt</label>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-3">
+                      <div class="form-group">
+                        <input type="text" class="form-control" formControlName="billingpostalcode" placeholder=" " id="name" name="name" tabindex="1">
+                        <label for="name" class ="form-label"> PLZ</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xl-6">
+                      <div class="form-group" style="padding-top: 5px; padding-bottom: 2em">
+                        <select formControlName="billingcountry" class="custom-select custom-select-sm">
+                          <option value="" disabled selected>Land</option>
+                          <option *ngFor="let country of availablecountries" [ngValue]="country" >{{country}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <button  type="button" (click)="onSubmit()" class="btn btn-block btn-primary">KAUFEN</button>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <li  class="list-group-item">
+        <div>
+          <h1>Bestellung</h1>
+          <p>ZWISCHENSUMME:  {{cartTotal - shipping |currency:'EUR'}}</p>
+          <p>VERSAND:  {{shipping|currency:'EUR'}}</p>
+          <p><strong>SUMME:  {{cartTotal |currency:'EUR'}}</strong></p>
+        </div>
+      </li>
+    </div>
+  </div>
+</div>
+
+

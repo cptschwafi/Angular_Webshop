@@ -1,0 +1,75 @@
+
+<div class="wrapper">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <!-- Image Slide Carousel -->
+      <div class="container" >
+        <owl-carousel-o [options]="customOptions" >
+          <ng-container *ngFor="let image of Item.ProductImages">
+            <ng-template carouselSlide >
+              <img [src]="image" style="max-height: 60vh; width: auto; margin: auto">
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-6 ">
+      <div class="container" style="height:100%">
+        <div class="row">
+          <div class="col-6 col-sm-12">
+            <h3>{{Item.name}}</h3>
+            <p> <small>{{Item.description}}</small></p>
+            <p> {{Item.price | currency:'EUR'}} </p>
+          </div>
+
+          <div class="col-6">
+            <p><small>GRÖSSE:</small></p>
+            <form action="" [formGroup]="sizeSelect" class="form">
+              <select class="custom-select custom-select-sm" formControlName="selectedSize" style="max-width:70px;" >
+                <option value=""  disabled selected>Gr.</option>
+                <option *ngFor="let size of Item.availableSizes">{{size}}</option>
+              </select>
+              <span class="alertinfo" *ngIf="sizeSelect.controls['selectedSize'].hasError('required') && (sizeSelect.controls['selectedSize'].dirty || sizeSelect.controls['selectedSize'].touched)"> Bitte Größe auswählen</span>
+            </form>
+              <div class="cartbtn">
+                <button type="button" class="btn btn-block btn-primary" (click)="handleAddToCart(content)" >IN DEN WARENKORB</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- MODAL WINDOW-->
+
+    <ng-template #content let-modal>
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-basic-title">Der Artikel wurde in Ihren Warenkorb gelegt</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modalbody">
+        <div class="row">
+          <div class="col-6">
+            <p><small>ARTIKEL:</small></p>
+            <p><small>GRÖSSE:</small></p>
+            <p><small>PREIS</small></p>
+          </div>
+          <div class="col-6">
+            <p><small>{{Item.name}}</small></p>
+            <p><small>{{sizeSelect.get('selectedSize')?.value}}</small></p>
+            <p><small>{{Item.price | currency:'EUR'}}</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()" >Weiter einkaufen </button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()" [routerLink]="['/precheckout']">Zum Warenkorb</button>
+      </div>
+    </ng-template>
+  </div>
+
+</div>
+

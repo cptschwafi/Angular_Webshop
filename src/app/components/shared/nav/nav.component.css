@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+*{
+  margin:0;
+  padding:0px;
+  box-sizing:border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.logo{
+  letter-spacing: 3px;
+  font-size: clamp(10px, 2vw, 20px);
+  padding-left: 2vw;
+}
+
+nav{
+  border-bottom: 1px solid #adadad;
+  background-color: white;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height:8vh;
+}
+
+/*Cart and Contact Symbol */
+.nav-links{
+  display: flex;
+  justify-content: space-around;
+  width: 10%;
+}
+.nav-links li{
+  list-style: none;
+}
+.cart-icon{
+  display: inline-block;
+}
+
+.responsive{
+  max-width: 60px;
+  width: 100%;
+  min-width:40px;
+}
+.CartSymbol{
+  max-width: 100%;
+  display: flex;
+  position:relative;
+  min-width: 40px;
+  margin-right: 10px;
+}
+
+#qty-container{
+  background:red;
+  border-radius: 4px;
+  max-width: 22px;
+  width: 100%;
+  position: absolute;
+  right: -8px;
+  bottom: 0px;
+}
+#qty{
+  margin-left:4px;
+  font-size: clamp(10px, 1.1vw, 14px);
+}
+
+.burger{
+  display:none;
+}
+.burger div{
+  width:25px;
+  height: 3px;
+  background-color:crimson;
+  margin: 5px;
+}
+@media only screen and (max-width: 768px) {
+  .burger {
+    display:inline;
+  }
+  .nav-links{
+    margin-right: 2vh;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .nav-links{
+    margin-right: 6vh;
+  }
+}

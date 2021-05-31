@@ -1,0 +1,50 @@
+
+
+<form action="" [formGroup]="contactForm" method ="POST" class="form">
+
+  <!--Kontaktdaten-->
+  <div class="inputcontainer" style="border-bottom: white">
+    <div class="row">
+      <div class="col-md-6" style="padding-top : 4em; padding-bottom: 2em">
+        <h4>Kontaktformular</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="name" placeholder=" " id="name" name="name" tabindex="1">
+        <label for="name" class ="form-label"> Vorname</label>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="lastname" placeholder=" " id="lastname" name="lastname" tabindex="1">
+        <label for="lastname" class ="form-label"> Nachname</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder=" " id="name" name="name" tabindex="1">
+        <label for="name" class ="form-label"> Telefonnummer (optional)</label>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="email" placeholder=" " id="email" name="email" tabindex="1">
+        <label for="email" class ="form-label"> E-Mail</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="inputcontainer" >
+    <div class="row">
+      <div class="col-12">
+        <div class="textbox">
+          <p>Nachricht:</p>
+          <textarea formControlName="text" name="" id="" cols="30" rows="3" class="textarea" ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-block btn-primary" (click)="onSubmit()">ABSCHICKEN</button>
+      </div>
+    </div>
+  </div>
+
+  </form>
