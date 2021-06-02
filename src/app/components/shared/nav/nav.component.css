@@ -49,7 +49,8 @@ nav{
 }
 
 #qty-container{
-  background:red;
+  /*background:red;*/
+  background-color:rgb(107, 255, 38);
   border-radius: 4px;
   max-width: 22px;
   width: 100%;
@@ -68,7 +69,7 @@ nav{
 .burger div{
   width:25px;
   height: 3px;
- /* background-color:crimson;*/
+  background-color:crimson;
   background-color:rgb(107, 255, 38);
   margin: 5px;
 }
