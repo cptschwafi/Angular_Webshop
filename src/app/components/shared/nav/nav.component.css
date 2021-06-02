@@ -41,7 +41,7 @@ nav{
   min-width:40px;
 }
 .CartSymbol{
-  max-width: 100%;
+  max-width: 80px;
   display: flex;
   position:relative;
   min-width: 40px;
