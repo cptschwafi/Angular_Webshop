@@ -1,8 +1,13 @@
-
 .billcontainer{
   margin: auto;
 }
 
 .wrapper{
   margin: auto;
+  padding: 0 2em 0 2em;
+}
+@media only screen and (max-width: 576px) {
+  .wrapper{
+    padding: 0;
+  }
 }

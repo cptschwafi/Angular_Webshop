@@ -24,8 +24,8 @@
 }
 @media only screen and (max-width: 768px) {
 
-.grid{
-  margin-left: auto;
-  margin-right: auto;
-}
+  .grid{
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

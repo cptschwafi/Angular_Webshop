@@ -1,7 +1,8 @@
+
 <div class="wrapper">
   <div class="row">
     <div class="col-md-6">
-      <ul class="list group" >
+
         <div *ngIf="cartItems.length === 0" class="alert alert-info">
           <small>Der Warenkorb ist leer</small>
           <img src="https://maxcdn.icons8.com/Share/icon/nolan/Shopping/shopping_cart1600.png" style="width: 30px;" alt="">
@@ -12,7 +13,7 @@
             </app-precheckout-cart-item>
           </li>
         </div>
-      </ul>
+
     </div>
     <div class="col-md-6">
       <li  class="list-group-item" *ngIf="cartItems.length >0">
@@ -27,7 +28,6 @@
     </div>
   </div>
 </div>
-
 
 
 

@@ -16,6 +16,7 @@
 }
 .wrapper{
   margin: auto;
+  padding: 0 2em 0 2em;
 }
 
 /* floating labels */
@@ -93,20 +94,29 @@
   background-color: white;
   height: 3em;
   position: relative;
-  bottom: 0em;
   z-index: 9;
   display:none;
 
 }
 #paypal-checkout-btn{
   position: absolute;
-  bottom:0;
+  bottom: 0;
   z-index: 1;
   height: 30px;
 }
 .paypal
 {
   position: relative;
-  min-height: 150px;
+  min-height: 50px;
+}
+@media only screen and (max-width: 576px) {
+  .wrapper{
+    padding: 0;
+  }
+}
 
+@media only screen and (max-width: 992px) {
+  .banktransferbtn{
+    padding-top: 1em;
+  }
 }

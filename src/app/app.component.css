@@ -1,6 +1,4 @@
-*{
-  max-width: 100%;
-}
+
 .sitebody{
   display: flex;
   flex-direction: column;
@@ -9,4 +7,12 @@
 .content
 {
   min-height: 100vh;
+
+}
+@media only screen and (max-width: 992px) {
+
+  .content{
+    width: 90%;
+    margin: auto;
+  }
 }

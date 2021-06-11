@@ -63,9 +63,6 @@ padding: 15px 0px 0px 15px;
   .categoryname{
     background: lightgrey;
   }
- }
-
- @media only screen and (max-width: 768px) {
   .category{
     text-align: center;
     padding-left: 0;
@@ -74,6 +71,10 @@ padding: 15px 0px 0px 15px;
     text-align: center;
     margin: auto;
   }
+ }
+
+ @media only screen and (max-width: 768px) {
+
 
   #genderselect{
     width: 50%;
