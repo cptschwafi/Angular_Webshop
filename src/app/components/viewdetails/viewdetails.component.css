@@ -28,4 +28,9 @@
     margin-left: auto;
     margin-right: auto;
   }
+  ::ng-deep .myCustomModal{
+    justify-content: center;
+    padding: 0 10vw 0 10vw
+  }
 }
+

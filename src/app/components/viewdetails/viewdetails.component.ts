@@ -101,7 +101,7 @@ export class ViewdetailsComponent implements OnInit, OnDestroy{
 
   // MODAL WINDOW LOGIC
   open(content: any): any {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',  windowClass : 'myCustomModal'});
   }
 }
 
