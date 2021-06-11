@@ -1,0 +1,13 @@
+*{
+  position: fixed;
+  bottom: 9vh;
+  right: 5vw;
+}
+.scrollupimg
+{
+  height:40px;
+}
+.scrollupimg:hover
+{
+  cursor: pointer;
+}

@@ -27,6 +27,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { CookiewindowComponent } from './components/shared/cookiewindow/cookiewindow.component';
 import { ImpressumComponent } from './components/legal/impressum/impressum.component';
 import { DataagreementComponent } from './components/legal/dataagreement/dataagreement.component';
+import { ScrollUpButtonComponent } from './components/shared/scroll-up-button/scroll-up-button.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { DataagreementComponent } from './components/legal/dataagreement/dataagr
     FilterandsortComponent,
     CookiewindowComponent,
     ImpressumComponent,
-    DataagreementComponent
+    DataagreementComponent,
+    ScrollUpButtonComponent
   ],
   imports: [
     BrowserModule,

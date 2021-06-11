@@ -43,17 +43,28 @@ export class NavComponent implements OnInit {
 
     toggleBurgerMenu(): void
     {
+      // burger menu hide/show or scroll to top
       if (window.location.href.split('?')[0] === 'http://localhost:4200/home'){
         this.msg.BurgerMenuToggle();
+        this.scrollToTop();
       }
       else{
         this.router.navigate([`/home`]);
       }
     }
-
+// navigate to home page
     async NavigateHome(): Promise<void>{
       await this.router.navigate(['home/']);
       this.msg.filtersChanged();
     }
-
+// scroll to top of the page
+    scrollToTop(): void {
+      (function smoothscroll(): void {
+          const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          if (currentScroll > 0) {
+              window.requestAnimationFrame(smoothscroll);
+              window.scrollTo(0, currentScroll - (currentScroll / 8));
+          }
+      })();
+    }
 }

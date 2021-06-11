@@ -141,6 +141,8 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
     if (this.email.valid)
     {
       this.emailconfirmed = true;
+      // tslint:disable-next-line: no-angle-bracket-type-assertion
+      // ADD AUTOTAB LATER   (<any> this.checkoutForm.get('name'))?.nativeElement.focus();
     }
     else if (this.email.invalid){
       this.emailconfirmed = false;
