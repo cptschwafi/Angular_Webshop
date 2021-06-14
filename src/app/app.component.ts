@@ -9,6 +9,7 @@ export class AppComponent implements OnInit{
   title = 'SchwafisPlace';
   constructor(private elementRef: ElementRef){}
 ngOnInit(): void {
+  // delete overflow on html body
   this.elementRef.nativeElement.ownerDocument.body.style.setProperty('overflow-x', 'hidden', 'important');
 }
 

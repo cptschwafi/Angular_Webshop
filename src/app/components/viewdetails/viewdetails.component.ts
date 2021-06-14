@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Product } from 'src/app/models/product';
 import { CartItem } from 'src/app/models/cart-item';
@@ -28,7 +28,7 @@ export class ViewdetailsComponent implements OnInit, OnDestroy{
 
 
   constructor(private route: ActivatedRoute, private cartservice: CartService,
-              private modalService: NgbModal) {}
+              private modalService: NgbModal, private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     // Save the full url to later unsubscribe on destroy
@@ -101,7 +101,14 @@ export class ViewdetailsComponent implements OnInit, OnDestroy{
 
   // MODAL WINDOW LOGIC
   open(content: any): any {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',  windowClass : 'myCustomModal'});
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',  windowClass : 'myCustomModal'})
+    .result.then((closedwithbutton) => {
+      // Resize Window to 100 vw
+      this.elementRef.nativeElement.ownerDocument.body.style.setProperty('overflow-x', 'hidden', 'important');
+    }, (dismissed) => {
+      // Resize Window to 100 vw
+      this.elementRef.nativeElement.ownerDocument.body.style.setProperty('overflow-x', 'hidden', 'important');
+    });
   }
 }
 

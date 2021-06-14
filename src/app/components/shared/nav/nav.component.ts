@@ -4,6 +4,7 @@ import { MessengerService } from './../../../services/messenger.service';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { CartItem } from 'src/app/models/cart-item';
+import { baseUrl } from 'src/app/config/frontendconfig';
 
 @Component({
   selector: 'app-nav',
@@ -44,7 +45,7 @@ export class NavComponent implements OnInit {
     toggleBurgerMenu(): void
     {
       // burger menu hide/show or scroll to top
-      if (window.location.href.split('?')[0] === 'http://localhost:4200/home'){
+      if (window.location.href.split('?')[0] === baseUrl + '/home'){
         this.msg.BurgerMenuToggle();
         this.scrollToTop();
       }
