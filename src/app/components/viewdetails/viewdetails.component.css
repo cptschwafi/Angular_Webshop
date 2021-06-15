@@ -29,7 +29,7 @@
     margin-right: auto;
   }
   ::ng-deep .myCustomModal{
-    justify-content: center;
+    width: 90vw;
   }
 }
 

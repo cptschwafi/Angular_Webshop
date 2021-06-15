@@ -23,7 +23,6 @@ export class PreCheckoutComponent implements OnInit
     {
       // reset cookie expiration to 14 days so the cookie wont run out while payment
       this.cookie.set('cartid', this.cookie.get('cartid'), 14);
-
       this.loadCartItemsFromResolver();
     }
     this.handleSubscription();

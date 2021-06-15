@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div id="headline" >
     <select id="size-select" class="custom-select custom-select-sm" [(ngModel)]="Filters.selectedSize" (ngModelChange)="ChangeFilters('set','','size')">
-      <option value=""  disabled>Gr.</option>
+      <option value=""  disabled>Größe</option>
       <option *ngFor="let size of Filters.availableSizes" >{{size}}</option>
     </select>
 

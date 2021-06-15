@@ -110,7 +110,7 @@ export class CartService {
      });
   }
 
-   async checkIfCartExists(id: string): Promise<boolean>
+  async checkIfCartExists(id: string): Promise<boolean>
   {
     return await this.http.get<boolean>(cartUrl + '/check/' + id).toPromise().then(
       data => {
