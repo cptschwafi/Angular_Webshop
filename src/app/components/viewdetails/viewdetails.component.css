@@ -11,6 +11,10 @@
   margin: 0;
   height: 40vh;
 }
+/*prevents safari from restyling element*/
+.originalstyle{
+  -webkit-appearance:none;
+}
 
 /* VALIDATION */
 .ng-invalid.ng-touched{
@@ -29,7 +33,7 @@
     margin-right: auto;
   }
   ::ng-deep .myCustomModal{
-    width: 90vw;
+    width: 100vw;
   }
 }
 

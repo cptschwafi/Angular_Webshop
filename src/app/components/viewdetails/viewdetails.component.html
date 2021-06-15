@@ -27,7 +27,7 @@
           <div class="col-6">
             <p><small>GRÖSSE:</small></p>
             <form action="" [formGroup]="sizeSelect" class="form">
-              <select class="custom-select custom-select-sm" formControlName="selectedSize" style="max-width:70px;" >
+              <select class="custom-select custom-select-sm originalstyle" formControlName="selectedSize" style="max-width:70px;" >
                 <option value=""  disabled selected>Gr.</option>
                 <option *ngFor="let size of Item.availableSizes">{{size}}</option>
               </select>
