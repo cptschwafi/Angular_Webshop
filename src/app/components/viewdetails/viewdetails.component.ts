@@ -16,6 +16,8 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class ViewdetailsComponent implements OnInit, OnDestroy{
 
+  // UI Control Variables
+  selectedIndex = -1;
 
   // RouteSub for Url Path that gets added when going in detail view
   private RouteSub: any ;
@@ -48,9 +50,17 @@ export class ViewdetailsComponent implements OnInit, OnDestroy{
     });
   }
 
+  selectSize(selectedsize: string, index: number): void
+  {
+    this.Item.selectedSize = selectedsize;
+    this.selectedIndex = index;
+    this.sizeSelect.disable();
+    this.sizeSelect.markAsDirty();
+  }
+
   async handleAddToCart(content: any): Promise<void>
   {
-    if (this.sizeSelect.valid)
+    if (this.sizeSelect.disabled)
     {
       const item: CartItem =
       {
@@ -58,7 +68,7 @@ export class ViewdetailsComponent implements OnInit, OnDestroy{
         itemid: this.Item.id,
         name: this.Item.name,
         price: this.Item.price,
-        selectedSize: this.sizeSelect.get('selectedSize')?.value,
+        selectedSize: this.Item.selectedSize,
         ImageUrl: this.Item.ImageUrl,
         quantity: 1
       };

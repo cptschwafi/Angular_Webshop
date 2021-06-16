@@ -26,13 +26,14 @@
 
           <div class="col-6">
             <p><small>GRÖSSE:</small></p>
-            <form action="" [formGroup]="sizeSelect" class="form">
-              <select class="custom-select custom-select-sm originalstyle" formControlName="selectedSize" style="max-width:70px;" >
-                <option value=""  disabled selected>Gr.</option>
-                <option *ngFor="let size of Item.availableSizes">{{size}}</option>
-              </select>
+              <div class="availablesizeslist" >
+                <div class="row">
+                  <div class="col availablesizeselement" (click)="selectSize(size, i)" [ngClass]="{'highlight': selectedIndex === i}" *ngFor="let size of Item.availableSizes ; let i = index;">
+                    {{size}}
+                  </div>
+                </div>
+              </div>
               <span class="alertinfo" *ngIf="sizeSelect.controls['selectedSize'].hasError('required') && (sizeSelect.controls['selectedSize'].dirty || sizeSelect.controls['selectedSize'].touched)"> Bitte Größe auswählen</span>
-            </form>
               <div class="cartbtn">
                 <button type="button" class="btn btn-block btn-primary" (click)="handleAddToCart(content)" >IN DEN WARENKORB</button>
               </div>
@@ -58,7 +59,7 @@
           </div>
           <div class="col-6">
             <p><small>{{Item.name}}</small></p>
-            <p><small>{{sizeSelect.get('selectedSize')?.value}}</small></p>
+            <p><small>{{Item.selectedSize}}</small></p>
             <p><small>{{Item.price | currency:'EUR'}}</small></p>
           </div>
         </div>

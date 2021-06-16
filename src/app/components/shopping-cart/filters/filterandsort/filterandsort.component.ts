@@ -23,6 +23,9 @@ export class FilterandsortComponent implements OnInit {
   constructor(private filterservice: FilterService, private msg: MessengerService,
               private route: ActivatedRoute) { }
 
+  // UI Control Variables
+  showavailablesizes = true;
+
 
   Filters: IFilters = {
     selectedFilters: {
@@ -40,12 +43,13 @@ export class FilterandsortComponent implements OnInit {
     this.getSizes();
   }
 
-  async ChangeFilters(value: string, category: string, type: string): Promise<void>
+  togglesizeselect(): void {
+    this.showavailablesizes = !this.showavailablesizes;
+  }
+
+
+  ChangeFilters(value: string, category: string, type: string): void
   {
-    if (value === 'set')
-    {
-      value = this.Filters.selectedSize;
-    }
     this.filterservice.ChangeFilters(value, category, type);
   }
 
@@ -54,6 +58,7 @@ export class FilterandsortComponent implements OnInit {
     // get selected Filters from Query Parameters
     // tslint:disable-next-line: deprecation
     this.route.queryParams.subscribe(query => {
+      this.showavailablesizes = false;
       this.Filters.selectedFilters.gender = query.g || '';
       this.Filters.selectedFilters.category = query.c || '';
       this.Filters.selectedFilters.subcategory = query.s || '';
