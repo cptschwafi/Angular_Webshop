@@ -38,6 +38,12 @@ export class FiltersComponent implements OnInit {
   async ChangeFilters(value: string, category: string, type: string): Promise<void>
   {
     this.filterservice.ChangeFilters(value, category, type);
+
+    // in mobile view, hide filters when a filter is selected
+    if ( window.innerWidth <= 768)
+    {
+      this.displayfilters = false;
+    }
   }
 
   handleSubscription(): void{

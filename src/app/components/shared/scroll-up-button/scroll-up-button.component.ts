@@ -17,6 +17,12 @@ export class ScrollUpButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getZindex(): string
+  {
+    return (this.windowposition > (document.documentElement.scrollHeight - document.documentElement.clientHeight - 100)) === true ? '-1' : '100';
+   // return this.scrollupZindex;
+  }
+
 // scroll to top of the page
   scrollToTop(): void {
     (function smoothscroll(): void {
@@ -27,5 +33,4 @@ export class ScrollUpButtonComponent implements OnInit {
         }
     })();
   }
-
 }

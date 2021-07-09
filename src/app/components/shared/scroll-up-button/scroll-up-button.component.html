@@ -1,1 +1,3 @@
-<img *ngIf="this.windowposition !==0" class="scrollupimg" src="https://schwafisplace.sytes.net/images/scrollup_tight.png" alt="" (click)="scrollToTop()">
+
+<img *ngIf="this.windowposition !==0" class="scrollupimg" [ngStyle]="{'z-index':getZindex()}" src="https://schwafisplace.sytes.net/images/scrollup_tight.png" alt="" (click)="scrollToTop()">
+
